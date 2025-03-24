@@ -19,6 +19,13 @@ export default [
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    settings: {
+      'import/resolver': {
+        typescript: {
+          project: 'tsconfig.json',
+        },
+      },
+    },
     plugins: {
       import: importPlugin,
       react,
@@ -29,8 +36,9 @@ export default [
       'import/order': [
         'warn',
         {
-          groups: [['builtin', 'external', 'internal']],
+          groups: [['builtin', 'external'], ['internal']],
           'newlines-between': 'always',
+          alphabetize: { order: 'asc', caseInsensitive: true },
         },
       ],
       'import/no-unresolved': 'error',
