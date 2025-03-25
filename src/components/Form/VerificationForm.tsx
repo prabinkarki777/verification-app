@@ -48,7 +48,7 @@ export default function VerificationForm() {
   };
 
   return (
-    <div className="bg-white/95 container xs:rounded-xl flex justify-center items-center min-w-full xs:min-w-0 mx-auto xs:mx-auto p-[15px] xs:p-[40px] xs:max-w-[418px] relative">
+    <div className="bg-white/95 container xs:rounded-xl flex justify-center items-center min-w-full xs:min-w-0 mx-auto xs:mx-auto p-[15px] xs:p-[40px] xs:max-w-[418px] relative min-h-screen xs:min-h-[auto]">
       <section className="justify-center flex flex-col items-center min-h-full">
         {/* Company Logo */}
         <div className="flex flex-row items-center mb-8">
@@ -62,8 +62,8 @@ export default function VerificationForm() {
           </p>
           <InputOTP count={OTP_LENGTH} pattern={REGEXP_ONLY_DIGITS} resetOTP={isError} onOTPChange={setOtp} />
           {isError && (
-            <div className="flex items-center mt-[-8px]">
-              <FaExclamationTriangle className="text-red-500 text-xs mr-1" />
+            <div className="flex items-center justify-center sm:justify-start mt-[-8px]">
+              <FaExclamationTriangle className="text-red-500 text-xs mr-1 hidden xs:block" aria-hidden="true" />
               <p className=" text-red-500 text-xs text-left">{error.message || 'Please provide a valid OTP'}</p>
             </div>
           )}
