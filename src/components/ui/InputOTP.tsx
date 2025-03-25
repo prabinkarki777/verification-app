@@ -80,6 +80,8 @@ const InputOTP = React.forwardRef<HTMLDivElement, InputOTPProps>(
     function moveFocusToRight(index: number) {
       if (inputRefs.current[index + 1]) {
         inputRefs.current[index + 1]?.focus();
+      } else {
+        inputRefs.current[index]?.blur();
       }
     }
 
