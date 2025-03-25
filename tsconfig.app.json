@@ -6,6 +6,7 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "types": ["jest", "@testing-library/jest-dom"],
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -27,5 +28,5 @@
       "@tanstack/react-query": ["node_modules/@tanstack/react-query"]
     }
   },
-  "include": ["src", "tailwind.config.ts"]
+  "include": ["src", "tailwind.config.ts", "test/__test__","test"]
 }
