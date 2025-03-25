@@ -115,7 +115,7 @@ const REGEXP_ONLY_DIGITS_AND_CHARS = /^[a-zA-Z0-9]$/;
    npm run dev
    ```
 
-   This will start the app locally at `http://localhost:3000`.
+   This will start the app locally.
 
 4. Build for production:
 
