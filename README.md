@@ -2,6 +2,8 @@
 # Client
 
 A user verification client built with React, TypeScript, Vite, and Tailwind CSS. This project serves as the frontend for an OTP (One-Time Password) verification application.
+[Verification App](https://verification-app-chi.vercel.app/)
+
 
 ## Features
 
