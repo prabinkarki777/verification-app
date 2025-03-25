@@ -6,6 +6,7 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
 import prettier from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
+import pluginQuery from '@tanstack/eslint-plugin-query';
 
 export default [
   {
@@ -54,4 +55,5 @@ export default [
     },
   },
   prettier,
+  ...pluginQuery.configs['flat/recommended'],
 ];

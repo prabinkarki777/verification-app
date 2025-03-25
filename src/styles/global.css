@@ -1,105 +1,120 @@
 @import 'tailwindcss';
 
-/* Base styles */
-body {
-  font-family: 'Inter', sans-serif;
-  line-height: 1.5;
-  background-color: #f9fafb;
-  color: #333;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@theme {
+  --font-display: 'Satoshi', 'sans-serif';
+  --breakpoint-xxs: 359px;
+  --breakpoint-xs: 480px;
+  --breakpoint-3xl: 1920px;
+  --color-primary: var(--color-gray-700);
+  --color-secondary: var(--color-blue-500);
+  --color-dark-purple: #110149;
+  --color-dark-purple-light: #16015cc5;
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+  /*  Spacing */
+  --spacing: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Inter', sans-serif;
-  margin-bottom: 0.5rem;
-  color: #333;
+/* ========================= */
+/*     BASE STYLES           */
+/* ========================= */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-display);
+    font-size: var(--text-base);
+    color: var(--color-primary);
+    @apply bg-gray-100 leading-1.5 m-0 p-0;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    @apply font-bold text-gray-900;
+  }
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+  p {
+    @apply text-base md:text-lg text-gray-700;
+  }
+
+  a {
+    @apply text-[#110149] transition-all duration-200 ease-in-out;
+  }
+
+  a:hover {
+    @apply text-[#16015cc5] underline;
+  }
+}
+/* ========================= */
+/*    COMPONENTS             */
+/* ========================= */
+@layer components {
+  /* 🔘 Buttons */
+  button {
+    display: inline-flex;
+    padding: var(--spacing-2) var(--spacing-4);
+    transition: all 0.3s ease-in-out;
+    @apply cursor-pointer font-medium text-center justify-center rounded-md;
+  }
+
+  .btn-primary {
+    background-color: var(--color-dark-purple);
+    color: var(--color-white);
+    @apply shadow-md;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-dark-purple-light);
+  }
+  .btn-primary:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
 }
 
-a {
-  color: #3490dc;
-  text-decoration: none;
-}
+/* ========================= */
+/*    UTILITIES              */
+/* ========================= */
+@layer utilities {
+  /* Flex Center */
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
 
-a:hover {
-  text-decoration: underline;
-}
+  /* Transition */
+  .transition-default {
+    @apply transition-all duration-200 ease-in-out;
+  }
 
-input,
-button {
-  font-family: 'Inter', sans-serif;
-}
+  /* Responsive Grid */
+  .grid-cols-auto {
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
+  }
 
-input:focus,
-button:focus {
-  outline: none;
-}
-
-/* Consistent input and button styles */
-input,
-button {
-  border-radius: 0.375rem; /* Rounded corners */
-  padding: 0.5rem 1rem;
-  border: 2px solid #d1d5db; /* Light gray border */
-}
-
-input:focus,
-button:focus {
-  border-color: #3490dc; /* Primary color on focus */
-  box-shadow: 0 0 0 3px rgba(52, 144, 220, 0.3); /* Focus ring */
-}
-
-button {
-  background-color: #3490dc;
-  color: white;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #2779bd; /* Darker blue on hover */
-}
-
-button:disabled {
-  background-color: #e5e7eb; /* Gray button when disabled */
-  cursor: not-allowed;
-}
-
-/* Define consistent spacing utilities */
-.mt-4 {
-  margin-top: 1rem;
-}
-.mb-4 {
-  margin-bottom: 1rem;
-}
-.ml-4 {
-  margin-left: 1rem;
-}
-.mr-4 {
-  margin-right: 1rem;
-}
-
-.pt-4 {
-  padding-top: 1rem;
-}
-.pb-4 {
-  padding-bottom: 1rem;
-}
-.pl-4 {
-  padding-left: 1rem;
-}
-.pr-4 {
-  padding-right: 1rem;
-}
-
-/* Centered flex container */
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* Disabled */
+  .disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
 }

@@ -1,11 +1,18 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Home from '@/pages/Home';
+import Success from '@/pages/Success';
+
 function App() {
   return (
-    <>
-      {/* Verification App for OTP */}
-      <div className="flex justify-center text-3xl">
-        <h1 className="bg-amber-100 text-primary">Verification App for OTP</h1>
+    <Router>
+      <div className="flex justify-center items-center min-h-screen bg-gray-100">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/success" element={<Success />} />
+        </Routes>
       </div>
-    </>
+    </Router>
   );
 }
 
