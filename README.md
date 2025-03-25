@@ -4,6 +4,25 @@
 A user verification client built with React, TypeScript, Vite, and Tailwind CSS. This project serves as the frontend for an OTP (One-Time Password) verification application.
 [Verification App](https://verification-app-chi.vercel.app/)
 
+## Extra Credit: Client-side Validation
+Instead of using input highlighting for errors (i.e., marking fields with non-numeric or empty values), this project implements a **real-time validation approach** in the OTP input form. The system ensures that only valid input is accepted, immediately guiding the user towards acceptable values. This provides a smoother, more intuitive experience without unnecessary visual clutter.
+
+The OTP input form is highly **customizable**, allowing different types of validation through the `pattern` prop of the OTP input component (`InputOTP.tsx`). It supports validation for:
+- Numeric digits only (`REGEXP_ONLY_DIGITS`)
+- Alphanumeric characters (`REGEXP_ONLY_DIGITS_AND_CHARS`)
+- Custom patterns (for different OTP formats)
+
+Here’s a quick look at how this is implemented in the `InputOTP.tsx` component:
+```tsx
+const REGEXP_ONLY_DIGITS = /^[0-9]$/;
+const REGEXP_ONLY_DIGITS_AND_CHARS = /^[a-zA-Z0-9]$/;
+
+// Usage in the component
+<InputOTP
+  pattern={REGEXP_ONLY_DIGITS_AND_CHARS} // You can pass different patterns here
+  count={6} // Defines the number of OTP input fields
+  onComplete={(otp: string) => console.log(otp)} // Callback when OTP input is complete
+/>
 
 ## Features
 
