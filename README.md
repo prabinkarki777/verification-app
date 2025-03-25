@@ -23,6 +23,7 @@ const REGEXP_ONLY_DIGITS_AND_CHARS = /^[a-zA-Z0-9]$/;
   count={6} // Defines the number of OTP input fields
   onComplete={(otp: string) => console.log(otp)} // Callback when OTP input is complete
 />
+```
 
 ## Features
 
